@@ -1,0 +1,33 @@
+<div class="container mt-4 ">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3">Liste des etudiant</span>
+            <button class="btn btn-success btn-lg float-right" routerLink="/createEtudiant">create student</button>
+            <h5 style="margin-top: 30px" *ngIf="etudiant.length == 0">pas des données enregistre</h5>
+            <table *ngIf="etudiant.length > 0" class="table mt-5 table-striped">
+                <thead>
+                  <tr>
+                    <th >Nom</th>
+                    <th >Prenom</th>
+                    <th >Adresse</th>
+                    <th >email</th>
+                    <th>Operations</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let etudiant of etudiant">
+                    <th>{{etudiant.nom}}</th>
+                    <td>{{etudiant.prenom}}</td>
+                    <td>{{etudiant.email}}</td>
+                    <td>{{etudiant.adresse}}</td>
+                    <td>
+                        <i class="fas fa-edit fa-lg text-info mr-2 pointer"  routerLink="/login"></i>
+                        <i (click)="deleteEtudiant(etudiant.id)" class="fas fa-trash-alt fa-lg text-danger pointer" ></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+    </div>
+</div>

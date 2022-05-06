@@ -1,0 +1,18 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                 <h3>Create your account</h3>
+                 <form #loginForm="ngForm" class="pt-4 mt-16" (ngSubmit)="submit(loginForm.value)">
+                        <input type="text" class="form-control form-control-lg mt-3" ngModel id="email" name="email" placeholder="entre votre email">
+                        <input type="password" class="form-control form-control-lg mt-3" ngModel id="password" name="password" placeholder="entre votre password">
+                     <div class="mt-3">
+                         <button type="text" class="btn btn-success btn-lg mr-3">Save</button>
+                     </div>
+                 </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
