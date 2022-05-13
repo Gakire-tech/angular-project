@@ -5,3 +5,15 @@ background: -webkit-linear-gradient(to right, #DECBA4, #3E5151);  /* Chrome 10-2
 background: linear-gradient(to right, #DECBA4, #3E5151); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+.title
+{
+    border-top: 4px solid #a7a59b;
+    background-color: #f6e9d9;
+    height: 22px;
+    line-height: 22px;
+    padding: 4px 6px;
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 13px;
+    clear:both;
+}

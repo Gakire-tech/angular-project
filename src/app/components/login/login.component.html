@@ -3,15 +3,15 @@
         <div class="col-lg-6 offset-lg-3">
             <div class="card text-center">
                 <div class="card-body">
-                 <h3>Login Form</h3>
+                 <h3>{{'title_login'| translate}}</h3>
                  <form class="pt-4 mt-16" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" >
-                        <input type="text" class="form-control form-control-lg mt-3" ngModel id="email" name="email" placeholder="Enter email">
-                        <input type="password" placeholder="Enter Password" ngModel id="password" name="password" class="form-control form-control-lg mt-3" >
+                        <input type="text" class="form-control form-control-lg mt-3" ngModel id="email" name="email" placeholder="{{'holdplace_nom_log'| translate}}">
+                        <input type="password" placeholder="{{'holdplace_prenom_log'| translate}}" ngModel id="password" name="password" class="form-control form-control-lg mt-3" >
                      <div class="mt-3">
-                         <button type="submit"  class="btn btn-success btn-lg">Login</button>
+                         <button type="submit"  class="btn btn-success btn-lg">{{'bouton_log'| translate}}</button>
                      </div>
                      <div class="pt-4">
-                        <span >if you have not account <a routerLink="/signup" >Sign-up</a></span>
+                        <span >{{'text_log'| translate}} <a routerLink="/signup" >{{'text_signup'| translate}}</a></span>
                      </div>
                  </form>
                 </div>

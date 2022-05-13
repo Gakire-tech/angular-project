@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth,createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,7 +9,7 @@ import { Auth,createUserWithEmailAndPassword, signInWithEmailAndPassword } from 
 })
 export class SignUpComponent implements OnInit {
 
-  constructor(public auth: Auth) { }
+  constructor(public auth: Auth, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -17,6 +18,7 @@ export class SignUpComponent implements OnInit {
     createUserWithEmailAndPassword(this.auth, value.email, value.password)
     .then((Response: any)=>{
       console.log(Response.user)
+      this.router.navigate(['/login'])
     }).catch((err)=>{
       alert(err.message);
     })

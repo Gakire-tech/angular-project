@@ -1,17 +1,18 @@
 <div class="container mt-4 ">
     <div class="card">
         <div class="card-body">
-            <span class="h3">Liste des etudiant</span>
-            <button class="btn btn-success btn-lg float-right" routerLink="/createEtudiant">create student</button>
-            <h5 style="margin-top: 30px" *ngIf="etudiant.length == 0">pas des données enregistre</h5>
+            <span class="h3">{{'title_list'| translate}}</span>
+            <button class="btn btn-success btn-lg float-right" routerLink="/createEtudiant">{{'bouton_list'| translate}}</button>
+            <h5 style="margin-top: 30px" *ngIf="etudiant.length == 0">{{'error_list'| translate}}</h5>
             <table *ngIf="etudiant.length > 0" class="table mt-5 table-striped">
                 <thead>
                   <tr>
-                    <th >Nom</th>
-                    <th >Prenom</th>
-                    <th >Adresse</th>
-                    <th >email</th>
-                    <th>Operations</th>
+                    <th >{{'th_nom'| translate}}</th>
+                    <th >{{'th_prenom'| translate}}</th>
+                    <th >{{'th_email'| translate}}</th>
+                    <th >{{'th_adresse'| translate}}</th>
+                    <th>{{'th_operation'| translate}}</th>
+                    <th>{{'th_operation'| translate}}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -20,9 +21,10 @@
                     <td>{{etudiant.prenom}}</td>
                     <td>{{etudiant.email}}</td>
                     <td>{{etudiant.adresse}}</td>
+                    <td>{{etudiant.language}}</td>
                     <td>
-                        <i class="fas fa-edit fa-lg text-info mr-2 pointer"  routerLink="/login"></i>
-                        <i (click)="deleteEtudiant(etudiant.id)" class="fas fa-trash-alt fa-lg text-danger pointer" ></i>
+                      <button class="bg-info" [routerLink]="['/editEtudiant/',etudiant.id]"> <i class="fas fa-edit  text-white "  ></i></button>
+                      <button class="bg-danger"  (click)="deleteEtudiant(etudiant.id)"> <i class="fas fa-trash-alt  text-white " ></i></button>
                     </td>
                   </tr>
                 </tbody>

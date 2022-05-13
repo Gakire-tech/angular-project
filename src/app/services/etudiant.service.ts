@@ -26,5 +26,9 @@ export class EtudiantService {
   {
     return this.firestore.collection('etudiant').doc(id).snapshotChanges();
   }
+  actualisation(id: string, data:any): Promise<any>
+  {
+    return this.firestore.collection('etudiant').doc(id).update(data);
+  }
 
 }

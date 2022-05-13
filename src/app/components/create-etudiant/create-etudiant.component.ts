@@ -15,7 +15,7 @@ export class CreateEtudiantComponent implements OnInit {
   submit=false;
   loading=false;
   id: string | null;
-  text='creation etudiant'
+  text='creation etudiant';
 
   constructor(private fb: FormBuilder, private etudiantService: EtudiantService, private router: Router,private aRouter: ActivatedRoute) {
     this.createEtudiant= this.fb.group({
@@ -31,13 +31,23 @@ export class CreateEtudiantComponent implements OnInit {
   ngOnInit(): void {
     this.editEtudiant();
   }
-  saveEtudiant()
+  createEtudiants()
   {
     this.submit=true;
     if(this.createEtudiant.invalid)
     {
       return;
     }
+    if(this.id === null)
+    {
+       this.saveEtudiant();
+      }else{
+        this.edit(this.id);
+      }
+    
+  }
+  saveEtudiant()
+  {
     const etudiant: any={
       nom: this.createEtudiant.value.nom,
       prenom: this.createEtudiant.value.prenom,
@@ -50,11 +60,28 @@ export class CreateEtudiantComponent implements OnInit {
     this.etudiantService.saveEtudiant(etudiant).then(()=>{
       console.log('enregistrement reussi');
       this.loading=false;
-      this.router.navigate(['/listEtudiant'])
+      this.router.navigate(['/listEtudiant']);
     }).catch(error=>{
       console.log(error);
       this.loading=false;
     })
+  }
+
+  edit(id: string)
+  {
+    this.loading=true;
+    const etudiant: any={
+      nom: this.createEtudiant.value.nom,
+      prenom: this.createEtudiant.value.prenom,
+      email: this.createEtudiant.value.email,
+      adresse: this.createEtudiant.value.adresse,
+      dateCreation: new Date(),
+      datefin: new Date()
+    }
+    this.etudiantService.actualisation(id, etudiant).then(()=>{
+      this.loading= false;
+    })
+    this.router.navigate(['/listEtudiant']);
   }
 
   editEtudiant()

@@ -15,6 +15,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 @NgModule({
@@ -35,10 +38,22 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     provideAuth(() => getAuth()),
     provideFirestore(()=> getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader:{
+      provide: TranslateLoader,
+      useFactory: translateFactory,
+      deps: [HttpClient]
+    }
+    })
 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function translateFactory(httpClient:HttpClient){
+  return new TranslateHttpLoader(httpClient);
+}

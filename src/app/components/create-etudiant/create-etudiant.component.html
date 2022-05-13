@@ -3,25 +3,26 @@
         <div class="col-lg-6 offset-lg-3">
             <div class="card text-center">
                 <div class="card-body">
-                 <h3>Enregistre un etudiant
+                 <h3>{{'title_creat'| translate}}
                  <div *ngIf="loading"  class="spinner-border float-right" role="status">
                      <span class="sr-only">Loading...</span>
                  </div>
                 </h3>
-                 <span *ngIf="submit && createEtudiant.invalid" class="badge badge-danger"> Veilleur renseigne les champs</span>
-                 <form class="pt-4 mt-8" [formGroup]="createEtudiant" (ngSubmit)="saveEtudiant()">
+                 <span *ngIf="submit && createEtudiant.invalid" class="badge badge-danger"> {{'error_form'| translate}}</span>
+                 <form class="pt-4 mt-8" [formGroup]="createEtudiant" (ngSubmit)="createEtudiants()">
                      <div class="row ">
                          <div class="col">
-                          <input type="text" class="form-control form-control-lg mt-3"formControlName="nom" placeholder="entre votre nom">
+                          <input type="text" class="form-control form-control-lg mt-3"formControlName="nom" placeholder="{{'placeholde_nom'| translate}}">
                          </div>
                          <div class="col">
-                            <input type="text" class="form-control form-control-lg mt-3"formControlName="prenom" placeholder="entre votre prenom">
+                            <input type="text" class="form-control form-control-lg mt-3"formControlName="prenom" placeholder="{{'placeholde_prenom'| translate}}">
                            </div>
                      </div>
-                        <input type="email" class="form-control form-control-lg mt-3"formControlName="email" placeholder="entre votre email">
-                        <input type="text" class="form-control form-control-lg mt-3"formControlName="adresse" placeholder="entre votre adresse">
+                        <input type="email" class="form-control form-control-lg mt-3"formControlName="email" placeholder="{{'placeholde_email'| translate}}">
+                        <input type="text" class="form-control form-control-lg mt-3"formControlName="adresse" placeholder="{{'placeholde_adresse'| translate}}">
                      <div class="mt-3">
-                         <button type="submit" class="btn btn-success btn-lg" >Save</button>
+                        <button type="text" class="btn btn-secondary btn-lg mr-3" routerLink="/listEtudiant">{{'back'| translate}}</button>
+                         <button type="submit" class="btn btn-success btn-lg" >{{'save'| translate}}</button>
                      </div>
                  </form>
                 </div>

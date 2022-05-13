@@ -3,12 +3,13 @@
         <div class="col-lg-6 offset-lg-3">
             <div class="card text-center">
                 <div class="card-body">
-                 <h3>Create your account</h3>
+                 <h3>{{'title_signup'| translate}}</h3>
                  <form #loginForm="ngForm" class="pt-4 mt-16" (ngSubmit)="submit(loginForm.value)">
-                        <input type="text" class="form-control form-control-lg mt-3" ngModel id="email" name="email" placeholder="entre votre email">
-                        <input type="password" class="form-control form-control-lg mt-3" ngModel id="password" name="password" placeholder="entre votre password">
+                        <input type="text" class="form-control form-control-lg mt-3" ngModel id="email" name="email" placeholder="{{'placeholde_nom_sign'| translate}}">
+                        <input type="password" class="form-control form-control-lg mt-3" ngModel id="password" name="password" placeholder="{{'placehold_prenom_sign'| translate}}">
                      <div class="mt-3">
-                         <button type="text" class="btn btn-success btn-lg mr-3">Save</button>
+                        <button type="text" class="btn btn-secondary btn-lg mr-3" routerLink="/login">{{'back'| translate}}</button>
+                         <button type="submit" class="btn btn-success btn-lg ">{{'bouton_sign'| translate}}</button>
                      </div>
                  </form>
                 </div>
